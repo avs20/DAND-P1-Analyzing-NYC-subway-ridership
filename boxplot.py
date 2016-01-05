@@ -1,6 +1,6 @@
 import pandas
 import numpy as np
-from ggplot import ggplot, geom_histogram, ggtitle
+from ggplot import *
 
 def floor_decade(date_value):
     #"Takes a date. Returns the decade."
@@ -24,14 +24,19 @@ data_no_rain = data_no_rain[:9433]
 data_no_rain['hour_cat'] = data_no_rain['hour'].astype('category')
 data_rain['hour_cat'] = data_rain['hour'].astype('category')
 data['hour_cat'] = data['hour'].astype('category')
+data['rain'] = data['rain'].astype('category')
 
 #now plot for data_rain and data_no_rain
-print ggplot(data_rain,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+geom_boxplot()
+#print ggplot(data_rain,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+geom_boxplot()
 
 
-print ggplot(data_no_rain,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+geom_boxplot()
+#print ggplot(data_no_rain,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+geom_boxplot()
 
-print ggplot(data,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+geom_boxplot()
+print ggplot(data,aes(y = 'hour_cat',x='ENTRIESn_hourly',fill='rain'))+ \
+    geom_boxplot()
+
+
+    
 
 
 
