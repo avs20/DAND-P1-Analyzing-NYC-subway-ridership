@@ -32,9 +32,20 @@ data['rain'] = data['rain'].astype('category')
 
 #print ggplot(data_no_rain,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+geom_boxplot()
 
-print ggplot(data,aes(y = 'hour_cat',x='ENTRIESn_hourly',fill='rain'))+ \
-    geom_boxplot()
+plot =  ggplot(data,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+ \
+    geom_boxplot() + \
+    facet_wrap('rain') + \
+    xlab("Number of Entries")+ \
+    ylab("Time of Day") + \
+    ggtitle("Subway Ridership by Hour of Day on Rainy and Non-Rainy Days")+ \
+    xlim(0,10000)
 
+print plot
+#print ggplot(data_rain,aes(y = 'hour_cat',x='ENTRIESn_hourly'))+ \
+#    geom_boxplot() + \
+#    xlab("Number of Entries")+ \
+#    ylab("Time of Day") + \
+#    ggtitle("Subway Ridership by Hour of Day on Rainy Days")
 
     
 
