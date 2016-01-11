@@ -8,8 +8,8 @@ def floor_decade(date_value):
 
 data = pandas.read_csv('turnstile_weather_v2.csv')
 
-#data_rain = data[data['rain'] > 0]
-#data_no_rain = data[data['rain'] == 0]
+data_rain = data[data['rain'] > 0]
+data_no_rain = data[data['rain'] == 0]
 #data_no_rain = data_no_rain[:9433]
 
 
@@ -26,16 +26,23 @@ data = pandas.read_csv('turnstile_weather_v2.csv')
 
 
 #plot the data of both days as a facet
-plot =  ggplot(data,aes(y = 'hour',x='ENTRIESn_hourly'))+ \
+plot =  ggplot(data_rain,aes(y = 'hour',x='ENTRIESn_hourly'))+ \
     geom_boxplot() + \
-    facet_grid('rain') + \
     xlab("Number of Entries")+ \
     ylab("Time of Day") + \
-    ggtitle("Subway Ridership by Hour of Day on Rainy and Non-Rainy Days")+ \
+    ggtitle("Subway Ridership by Hour of Day on Rainy Days")+ \
     xlim(0,10000)
 
 print plot
     
+plot =  ggplot(data_no_rain,aes(y = 'hour',x='ENTRIESn_hourly'))+ \
+    geom_boxplot() + \
+    xlab("Number of Entries")+ \
+    ylab("Time of Day") + \
+    ggtitle("Subway Ridership by Hour of Day on Non-Rainy Days")+ \
+    xlim(0,10000)
 
+print plot
+    
 
 

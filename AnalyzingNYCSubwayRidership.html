@@ -206,11 +206,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Section-1:-Statistical-test">Section 1: Statistical test<a class="anchor-link" href="#Section-1:-Statistical-test">&#182;</a></h3><h4 id="1.1-Statistical-test">1.1 Statistical test<a class="anchor-link" href="#1.1-Statistical-test">&#182;</a></h4><p>Mann-Whitney-U test is used to analyze the subway data.</p>
-<p>One tailed P-value is used. Python implementation of Mann-Whitney-u-test checks for one -tailed pvalues. To obtain the two tailed p- values we can multiply it by 2.</p>
-<h4 id="Null-Hypothesis:">Null-Hypothesis:<a class="anchor-link" href="#Null-Hypothesis:">&#182;</a></h4><p>The mean of the ridership on the rainy days and non-rainy days is not significantly different.</p>
+<h3 id="Section-1:-Statistical-test">Section 1: Statistical test<a class="anchor-link" href="#Section-1:-Statistical-test">&#182;</a></h3><h4 id="1.1-Statistical-test">1.1 Statistical test<a class="anchor-link" href="#1.1-Statistical-test">&#182;</a></h4><p>Mann-Whitney-U test is used to analyze the subway data.
+A two-tailed test will be used because it is still not considered which dataset (rain/non-rain) would have
+higher mean values.</p>
+<p>The p-critical value was chosen to be 0.05 or 5%.</p>
+<h4 id="Null-Hypothesis:">Null-Hypothesis:<a class="anchor-link" href="#Null-Hypothesis:">&#182;</a></h4><p>The null hypothesis for the Mann-Whitney-U test is
+<strong>The two populations are same</strong>.</p>
 <p>The p-value obtained is <strong>0.0249</strong> which is less than the alpha -critical value of 0.05.</p>
-<h4 id="1.2-Reasoning">1.2 Reasoning<a class="anchor-link" href="#1.2-Reasoning">&#182;</a></h4><p>Mann-Whitney-U test is application in this case as we are not assuming any difference in the values of 
+<h4 id="1.2-Reasoning">1.2 Reasoning<a class="anchor-link" href="#1.2-Reasoning">&#182;</a></h4><p>The histogram of the data for the rainy days and the non-rainy days is not normal. A <strong>t-test</strong> can only be applied for normal distribution. We need a non-parametric test which does not take any assumption about the distribution of population.
+Mann-Whitney-U test is application in this case as we are not assuming any difference in the values of 
 two samples. We test that whether a particular population tends to differ from other.</p>
 <h4 id="1.3-Results:">1.3 Results:<a class="anchor-link" href="#1.3-Results:">&#182;</a></h4><p><code>Data         | Mean Value | p-Value</code></p>
 <p><code>With Rain    | 1105.447   | 0.0249</code></p>
@@ -258,7 +262,7 @@ Feature  Coefficient</p>
 <li>Weekday         <strong>976.8896</strong></li>
 </ul>
 <p>The remaining coefficients are of the dummy variables hence removed from here .</p>
-<h4 id="2.5-R-squared-value-of-model">2.5 R-squared value of model<a class="anchor-link" href="#2.5-R-squared-value-of-model">&#182;</a></h4><p>The R-squared value of the model comes to be 0.48139</p>
+<h4 id="2.5-R-squared-value-of-model">2.5 R-squared value of model<a class="anchor-link" href="#2.5-R-squared-value-of-model">&#182;</a></h4><p>The R-squared value of the model comes to be 0.48139. This value tells that we have approximately explained about 50% of the variability of number of Entries hourly. But it must be noted that even though the high R-squared value explains the variability but it is not necessary that high value should be interpreted as a good model fit.</p>
 
 </div>
 </div>
@@ -290,9 +294,11 @@ interpretation available from the graph. The graph looks like because the number
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2-Visualization-for-Rider-ship-by-time-of-day.">3.2 Visualization for Rider ship by time of day.<a class="anchor-link" href="#3.2-Visualization-for-Rider-ship-by-time-of-day.">&#182;</a></h3><p><img src="plots/boxplot_comparison.png" alt=""></p>
+<h3 id="3.2-Visualization-for-Rider-ship-by-time-of-day.">3.2 Visualization for Rider ship by time of day.<a class="anchor-link" href="#3.2-Visualization-for-Rider-ship-by-time-of-day.">&#182;</a></h3><p><img src="plots/boxplot_rainy.png" alt="">
+<img src="plots/boxplot_non_rainy.png" alt=""></p>
 <p>From the visualization is section 3.2 it is clear that number of entries for the subway increase  at 12 pm 
-and 8 pm.  But this may due to the aggregation of entries in 4 hour slots.</p>
+and 8 pm.  But this may due to the aggregation of entries in 4 hour slots. 
+Also the boxes (IQR) for the 12pm and 20pm are bigger on rainy days than on non rainy days.</p>
 
 </div>
 </div>
