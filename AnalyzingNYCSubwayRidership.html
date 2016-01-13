@@ -212,7 +212,10 @@ higher mean values.</p>
 <p>The p-critical value was chosen to be 0.05 or 5%.</p>
 <h4 id="Null-Hypothesis:">Null-Hypothesis:<a class="anchor-link" href="#Null-Hypothesis:">&#182;</a></h4><p>The null hypothesis for the Mann-Whitney-U test is
 <strong>The two populations are same</strong>.</p>
-<p>The p-value obtained is <strong>0.0249</strong> which is less than the alpha -critical value of 0.05.</p>
+<p>The p-value obtained is <strong>0.0249</strong>. The package  <strong><em> scipy.stats.mannwhitneyu  </em></strong>in python returns the p-value for the one tailed test. 
+So this value is for one-tailed test. As we have declared above that we will be using two-tailed test hence
+to get the 2-tailed p-value we need to multiply it by 2 which 
+gives us the p-value of <strong>0.0498</strong>  which is less than the alpha -critical value of 0.05.</p>
 <h4 id="1.2-Reasoning">1.2 Reasoning<a class="anchor-link" href="#1.2-Reasoning">&#182;</a></h4><p>The histogram of the data for the rainy days and the non-rainy days is not normal. A <strong>t-test</strong> can only be applied for normal distribution. We need a non-parametric test which does not take any assumption about the distribution of population.
 Mann-Whitney-U test is application in this case as we are not assuming any difference in the values of 
 two samples. We test that whether a particular population tends to differ from other.</p>
